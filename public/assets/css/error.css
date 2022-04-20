@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------------------
+ * JA University Template for J25 & J32
+ * ------------------------------------------------------------------------
+ * Copyright (C) 2004-2011 J.O.O.M Solutions Co., Ltd. All Rights Reserved.
+ * @license - Copyrighted Commercial Software
+ * Author: J.O.O.M Solutions Co., Ltd
+ * Websites:  http://www.joomlart.com -  http://www.joomlancers.com
+ * This file may not be redistributed in whole or significant part.
+ * ------------------------------------------------------------------------
+*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.error {
+  background: url(../img/error.jpg) no-repeat left top;
+  background-size: cover;
+  height: 350px;
+  margin: 100px auto 0;
+  overflow: hidden;
+  width: 60%;
+  border: 1px solid;
+  border-color: #e43c5c;
+}
+
+@media (max-width: 991px) {
+  .error{
+      width: 100%;
+    }
+
+    .error #errorboxbody {
+      font-size: 1em;
+      color: white;
+    }
+    
+    .error .error-message{
+        font-size: 1.2em;
+    }
+}
+
+.error #outline {
+  color: #d9dbdd;
+  font-family: 'Handlee', cursive;
+  margin: 40px 40px 40px 140px;
+  text-align: center;
+}
+
+.error #outline h1 {
+  font-size: 5.500em;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.error #outline .error-message {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.error #errorboxbody {
+  font-size: 1.5em;
+  color: white;
+}
+
+.error #errorboxbody a {
+  border-bottom: 1px dotted #d9dbdd;
+  color: #d9dbdd;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.error #errorboxbody a:hover,
+.error #errorboxbody a:focus,
+.error #errorboxbody a:active {
+  border-color: #d42b1e;
+  color: #d42b1e;
+}
