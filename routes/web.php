@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-
+use App\Http\Controllers\testController;
+use App\Http\Controllers\LoginRegistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +24,7 @@ Route::get('/', function () {
 
 Route::view('register','register')->name("register");
 Route::view('login','login')->name("login");
-Route::post('/registerUser','App\Http\Controllers\LoginRegistController@registerUser');
 Route::post('loginUser','App\Http\Controllers\LoginRegistController@login');
-
 Route::view('list-P','listP')->name("listP");
 Route::view('login','login')->name("login");
 Route::view('add-patrimoine','add-patrimoine')->name("add-patrimoine");

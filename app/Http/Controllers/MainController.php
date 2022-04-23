@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 use Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
