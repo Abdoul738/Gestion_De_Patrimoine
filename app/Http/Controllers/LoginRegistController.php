@@ -34,7 +34,7 @@ class LoginRegistController extends Controller
         else{
             if($result[0]->password === $req->password){
             $user=DB::table('users')->where('id',$result[0]->id)->get();
-            return response()->json($req->email);
+            return response()->json($req);
             }
             else{
                 return response()->json(sizeof($res));
@@ -44,6 +44,7 @@ class LoginRegistController extends Controller
 
     public function getUser($email){
         $data = DB::table('users')->where('email',$email)->get();
+        //$data= User::all();
         return response()->json($data->prenom,200);
       }
 
