@@ -534,6 +534,7 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ControllerPatrimoine' => __DIR__ . '/../..' . '/app/Http/Controllers/ControllerPatrimoine.php',
         'App\\Http\\Controllers\\LoginRegistController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginRegistController.php',
         'App\\Http\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainController.php',
         'App\\Http\\Controllers\\MapController' => __DIR__ . '/../..' . '/app/Http/Controllers/MapController.php',

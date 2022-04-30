@@ -29,6 +29,7 @@ Route::view('list-P','listP')->name("listP");
 Route::view('login','login')->name("login");
 Route::view('add-patrimoine','add-patrimoine')->name("add-patrimoine");
 Route::get('/courts/show/map', 'App\Http\Controllers\courtController@showmap')->name('courts.showmap');
+Route::post('saveP','App\Http\Controllers\ControllerPatrimoine@save');
 
 // Route::group(['middleware'=>'customAuth'],function(){
 //     Route::get('/list','App\Http\Controllers\LoginRegistController@list');
