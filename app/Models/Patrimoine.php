@@ -28,7 +28,5 @@ class Patrimoine extends Model
         'lat',
         'lng',
         'echeancepat',
-        'datedebut',
-        'datefin',
     ];
 }

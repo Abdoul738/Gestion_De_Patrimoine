@@ -24,10 +24,9 @@ class CreatePatrimoineTable extends Migration
             $table->string("plan");
             $table->string("pays");
             $table->string("ville");
-            $table->unsignedBigInteger("latitude");
-            $table->unsignedBigInteger("longitude");
-            $table->date("dateDebut");
-            $table->date("dateFin");
+            $table->string("echeance");
+            $table->double("latitude");
+            $table->double("longitude");
             $table->boolean("validation");
             $table->unsignedBigInteger("idUser");
             $table->timestamps();
