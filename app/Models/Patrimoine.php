@@ -14,7 +14,7 @@ class Patrimoine extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $guarded = [
         // 'id',
         'nompat',
         'descpat',
@@ -25,8 +25,9 @@ class Patrimoine extends Model
         'planpath',
         'payspath',
         'villepath',
-        'latpat',
-        'longpat',
+        'lat',
+        'lng',
+        'echeancepat',
         'datedebut',
         'datefin',
     ];

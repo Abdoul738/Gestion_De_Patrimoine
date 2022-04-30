@@ -68,7 +68,7 @@ class ControllerPatrimoine extends Controller
         $patrimoine->ville = $data['villepat'];
         $patrimoine->latitude = $data['lat'];
         $patrimoine->longitude = $data['lng'];
-        $patrimoine->dateDebut = $data['echeancepat'];
+        $patrimoine->echeance = $data['echeancepat'];
 
 
         // Handle Image file Upload
@@ -88,7 +88,7 @@ class ControllerPatrimoine extends Controller
 
         $patrimoine->save();
         $request->session()->flash('success','Patrrimoine is successfully saved');
-        return redirect('/add-patrimoine');
+        return redirect('/');
     }
 
 

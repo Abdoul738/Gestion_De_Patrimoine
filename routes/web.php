@@ -18,17 +18,14 @@ use App\Http\Controllers\LoginRegistController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get("/logins", function () {
-//     return view("logins");
-// })->name("logins");
 
 Route::view('register','register')->name("register");
 Route::view('login','login')->name("login");
 Route::post('loginUser','App\Http\Controllers\LoginRegistController@login');
+Route::post('/registerUser','App\Http\Controllers\LoginRegistController@registerUser');
 Route::view('list-P','listP')->name("listP");
 Route::view('login','login')->name("login");
 Route::view('add-patrimoine','add-patrimoine')->name("add-patrimoine");
-Route::get('/courts/show/map', 'App\Http\Controllers\courtController@showmap')->name('courts.showmap');
 Route::post('saveP','App\Http\Controllers\ControllerPatrimoine@save');
 
 // Route::group(['middleware'=>'customAuth'],function(){

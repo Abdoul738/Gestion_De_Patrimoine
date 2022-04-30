@@ -27,3 +27,4 @@ Route::get('/getUsers/{email}',[LoginRegistController::class,'getUser']);
 Route::post('/registerUser',[LoginRegistController::class,'registerUser']);
 Route::post('/verifyprofil',[LoginRegistController::class,'login']);
 Route::post('/createuser',[testController::class,'create']);
+Route::post('/saveP',[ControllerPatrimoine::class,'save']);
