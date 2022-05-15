@@ -28,5 +28,6 @@ class Patrimoine extends Model
         'lat',
         'lng',
         'echeancepat',
+        'idUser',
     ];
 }

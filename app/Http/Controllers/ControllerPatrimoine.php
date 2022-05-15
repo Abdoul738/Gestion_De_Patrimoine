@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Patrimoine;
+use Illuminate\Support\Facades\Storage;
 
 class ControllerPatrimoine extends Controller
 {
@@ -16,7 +17,7 @@ class ControllerPatrimoine extends Controller
     // public function liste()
     // {
     //     $games = Patrimoine::all();
-        
+
     //     return view('liste-patrimoine',compact('patrimoine'));
     // }
 
@@ -38,25 +39,9 @@ class ControllerPatrimoine extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request)
+    public function save(Request $req)
     {
-        $validatedData = $request->validate([
-
-            'nompat' => 'required',
-            'descpat' => 'required|max:500',
-            'typepat' => 'required',
-            'entpat' => 'required',
-            'chfequippat' => 'required',
-            'imgpat' => 'required',
-            'planfilepat' => 'required',
-            'payspat' => 'required',
-            'villepat' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
-            'echeancepat' => 'required',
-        ]);
-
-        $data = $request->input();
+        $data = $req->input();
         $patrimoine = new Patrimoine;
 
         $patrimoine->titre = $data['nompat'];
@@ -69,27 +54,27 @@ class ControllerPatrimoine extends Controller
         $patrimoine->latitude = $data['lat'];
         $patrimoine->longitude = $data['lng'];
         $patrimoine->echeance = $data['echeancepat'];
+        $patrimoine->idUser = $data['idUser'];
 
+        $imagename= $req->file('imgpat')->hashname();
+        Storage::disk('local')->put($imagename,file_get_contents($req->file('imgpat')));
 
-        // Handle Image file Upload
-        $file = $request->file('imgpat') ;
-        $fileName = $file->getClientOriginalName() ;
-        $destinationPath = public_path().'/assets/img/PatImage' ;
-        $file->move($destinationPath,$fileName);
-        $patrimoine->image = $fileName;
+        $planname= $req->file('planfilepat')->hashname();
+        Storage::disk('local')->put($imagename,file_get_contents($req->file('planfilepat')));
 
-        // Handle Image file Upload
-        $file1 = $request->file('planfilepat') ;
-        $fileName1 = $file1->getClientOriginalName() ;
-        $destinationPath1 = public_path().'/assets/img/PlanFile' ;
-        $file1->move($destinationPath1,$fileName1);
-        $patrimoine->plan = $fileName1;
-        
+        $patrimoine->image=$imagename;
+        $patrimoine->plan=$planname;
 
         $patrimoine->save();
-        $request->session()->flash('success','Patrrimoine is successfully saved');
-        return redirect('/');
+        return response()->json($patrimoine, 200 );
     }
+
+    public function getpatrimoines(){
+
+        $data=Patrimoine::all();
+        return response()->json($data, 200 );
+    }
+
 
 
     // /**

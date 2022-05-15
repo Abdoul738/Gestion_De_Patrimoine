@@ -13,10 +13,10 @@ class CreatePatrimoineTable extends Migration
      */
     public function up()
     {
-        Schema::create('patrimoine', function (Blueprint $table) {
+        Schema::create('patrimoines', function (Blueprint $table) {
             $table->id();
             $table->string("titre");
-            $table->string("descrription");
+            $table->string("description");
             $table->string("typepat");
             $table->string("entreprise");
             $table->string("chefEquipe");
@@ -27,8 +27,8 @@ class CreatePatrimoineTable extends Migration
             $table->string("echeance");
             $table->double("latitude");
             $table->double("longitude");
-            $table->boolean("validation");
-            $table->unsignedBigInteger("idUser");
+            $table->boolean("validation")->default(false);
+            $table->integer("idUser");
             $table->timestamps();
             // $table->foreignId('user_id')->constrained()->onUpdate("cascade");
         });

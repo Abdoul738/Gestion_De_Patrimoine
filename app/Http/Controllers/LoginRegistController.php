@@ -24,20 +24,22 @@ class LoginRegistController extends Controller
 
     function login(Request $req){
 
-        $result = DB::table('users')->where('email',$req->email)->get();
+        $result = DB::table('users')->where([
+
+              ['email', $req->email],
+              ['password',$req->password],
+
+                        ])->get();
 
         $res = json_decode($result,true);
-
+        return response()->json(sizeof($res));
         if(sizeof($res) === 0){
         return response()->json(sizeof($res));
         }
         else{
             if($result[0]->password === $req->password){
             $user=DB::table('users')->where('id',$result[0]->id)->get();
-            return response()->json($req);
-            }
-            else{
-                return response()->json(sizeof($res));
+            return response()->json($result[0]->id);
             }
         }
     }
