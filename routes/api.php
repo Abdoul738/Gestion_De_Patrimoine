@@ -29,3 +29,9 @@ Route::post('/registerUser',[LoginRegistController::class,'registerUser']);
 Route::post('/verifyprofil',[LoginRegistController::class,'login']);
 Route::post('/createuser',[testController::class,'create']);
 Route::post('/saveP',[ControllerPatrimoine::class,'save']);
+
+Route::get('images/{filename}', function ($filename)
+{
+    $file = \Illuminate\Support\Facades\Storage::get($filename);
+    return response($file, 200)->header('Content-Type', 'image/jpeg');
+});
