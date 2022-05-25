@@ -173,6 +173,7 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Baum\\' => 5,
         ),
         'A' => 
         array (
@@ -510,6 +511,10 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Baum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/baum/baum/src',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -550,6 +555,7 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\customAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/customAuth.php',
+        'App\\Models\\Patrimoine' => __DIR__ . '/../..' . '/app/Models/Patrimoine.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\test' => __DIR__ . '/../..' . '/app/Models/test.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -560,6 +566,36 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Baum\\BaumServiceProvider' => __DIR__ . '/..' . '/baum/baum/src/BaumServiceProvider.php',
+        'Baum\\Console\\MakeMigrationCommand' => __DIR__ . '/..' . '/baum/baum/src/Console/MakeMigrationCommand.php',
+        'Baum\\Console\\MakeModelCommand' => __DIR__ . '/..' . '/baum/baum/src/Console/MakeModelCommand.php',
+        'Baum\\Console\\MigrationCreator' => __DIR__ . '/..' . '/baum/baum/src/Console/MigrationCreator.php',
+        'Baum\\Console\\VersionCommand' => __DIR__ . '/..' . '/baum/baum/src/Console/VersionCommand.php',
+        'Baum\\Mixins\\Blueprint' => __DIR__ . '/..' . '/baum/baum/src/Mixins/Blueprint.php',
+        'Baum\\Mixins\\Collection' => __DIR__ . '/..' . '/baum/baum/src/Mixins/Collection.php',
+        'Baum\\NestedSet\\Builder' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Builder.php',
+        'Baum\\NestedSet\\Concerns\\CanBeScoped' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/CanBeScoped.php',
+        'Baum\\NestedSet\\Concerns\\HasAttributes' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/HasAttributes.php',
+        'Baum\\NestedSet\\Concerns\\HasColumns' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/HasColumns.php',
+        'Baum\\NestedSet\\Concerns\\HasDepth' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/HasDepth.php',
+        'Baum\\NestedSet\\Concerns\\HasEvents' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/HasEvents.php',
+        'Baum\\NestedSet\\Concerns\\Mappable' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/Mappable.php',
+        'Baum\\NestedSet\\Concerns\\Movable' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/Movable.php',
+        'Baum\\NestedSet\\Concerns\\Rebuildable' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/Rebuildable.php',
+        'Baum\\NestedSet\\Concerns\\Relatable' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/Relatable.php',
+        'Baum\\NestedSet\\Concerns\\Validatable' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/Validatable.php',
+        'Baum\\NestedSet\\Concerns\\WorksWithSoftDeletes' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Concerns/WorksWithSoftDeletes.php',
+        'Baum\\NestedSet\\Mapper' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Mapper.php',
+        'Baum\\NestedSet\\Move' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Move.php',
+        'Baum\\NestedSet\\MoveNotPossibleException' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/MoveNotPossibleException.php',
+        'Baum\\NestedSet\\Node' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Node.php',
+        'Baum\\NestedSet\\NodeObserver' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/NodeObserver.php',
+        'Baum\\NestedSet\\Scopes\\OrderingScope' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Scopes/OrderingScope.php',
+        'Baum\\NestedSet\\Scopes\\ScopedByScope' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Scopes/ScopedByScope.php',
+        'Baum\\NestedSet\\Validator' => __DIR__ . '/..' . '/baum/baum/src/NestedSet/Validator.php',
+        'Baum\\Node' => __DIR__ . '/..' . '/baum/baum/src/Node.php',
+        'Baum\\Playground\\Caster' => __DIR__ . '/..' . '/baum/baum/src/Playground/Caster.php',
+        'Baum\\Playground\\Console' => __DIR__ . '/..' . '/baum/baum/src/Playground/Console.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

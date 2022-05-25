@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a8cff7024c9a9044587ac3090d76c8a7bdec3f53',
+        'reference' => '6b9bcb474a06ec014fc8c3d383d3384a9938b2bd',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -17,6 +17,15 @@
             'install_path' => __DIR__ . '/../asm89/stack-cors',
             'aliases' => array(),
             'reference' => '73e5b88775c64ccc0b84fb60836b30dc9d92ac4a',
+            'dev_requirement' => false,
+        ),
+        'baum/baum' => array(
+            'pretty_version' => 'v2.x-dev',
+            'version' => '2.9999999.9999999.9999999-dev',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../baum/baum',
+            'aliases' => array(),
+            'reference' => '24c331d6fef50b0e112ea2854f7d88cd5f25a4dc',
             'dev_requirement' => false,
         ),
         'brick/math' => array(
@@ -418,7 +427,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a8cff7024c9a9044587ac3090d76c8a7bdec3f53',
+            'reference' => '6b9bcb474a06ec014fc8c3d383d3384a9938b2bd',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

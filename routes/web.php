@@ -36,3 +36,11 @@ Route::post('saveP','App\Http\Controllers\ControllerPatrimoine@save');
 //     Route::view('logins','logins');
 //     Route::get('logout','App\Http\Controllers\LoginRegistController@logout');
 // });
+
+// Posts and comments
+Route::prefix('patrimoines')->namespace('Front')->group(function () {
+  
+    Route::name('patrimoines.comments.store')->post('{patrimoine}/comments', 'CommentController@store');
+    Route::name('patrimoines.comments.comments.store')->post('{patrimoine}/comments/{comment}/comments', 'CommentController@store');
+   
+});
