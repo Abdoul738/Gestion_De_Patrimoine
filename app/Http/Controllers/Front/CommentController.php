@@ -7,21 +7,23 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(CommentRequest $request, Patrimoine $patrimoine, $comment_id = null)
+    public function index()
     {
-        Comment::create ([
-            'content' => $request->input('message' . $comment_id),
-            'pat_id' => $patrimoine->id,
-            'user_id' => $request->user()->id,
-            'parent_id' => $comment_id,
-        ]);
+        return view('comments.index', ['comments'=>Comment::with('post')->get()]);
+    }
 
-        if (!$request->user()->valid) {
-            $request->session()->flash('warning', __('Merci pour votre commentaire. Il apparaîtra lorsqu\'un administrateur l\'aura validé.<br>Une fois que vous êtes validé, vos autres commentaires apparaissent immédiatement.'));
+    public function update(Request $request, Comment $comment)
+    {
+        $validatedData = $request->validate([
+            'title'=>'required|min:2|max:255',
+            'author'=>'required|min:2|max:50',
+            'content'=>'required|min:5',
+        ]);
+        if($comment->reported) {
+            $comment->update(array_merge($validatedData, ['reported' => 0]));
+        } else {
+            $comment->update($validatedData);
         }
-        if($request->ajax()) {
-            return response()->json();
-        }
-        return back();
+        return redirect()->back()->with('success', 'Le commentaire a été modifié');
     }
 }

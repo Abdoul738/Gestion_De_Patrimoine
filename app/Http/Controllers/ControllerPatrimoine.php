@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Patrimoine;
 use Illuminate\Support\Facades\Storage;
+// use Intervention\Image\Facades\Image;
+use Image;
 
 class ControllerPatrimoine extends Controller
 {
@@ -44,26 +46,34 @@ class ControllerPatrimoine extends Controller
         $data = $req->input();
         $patrimoine = new Patrimoine;
 
-        $patrimoine->titre = $data['nompat'];
-        $patrimoine->description = $data['descpat'];
-        $patrimoine->typepat = $data['typepat'];
-        $patrimoine->entreprise = $data['entpat'];
-        $patrimoine->chefEquipe = $data['chfequippat'];
-        $patrimoine->pays = $data['payspat'];
-        $patrimoine->ville = $data['villepat'];
-        $patrimoine->latitude = $data['lat'];
-        $patrimoine->longitude = $data['lng'];
-        $patrimoine->echeance = $data['echeancepat'];
-        $patrimoine->idUser = $data['idUser'];
+        // $patrimoine->titre = $data['nompat'];
+        // $patrimoine->description = $data['descpat'];
+        // $patrimoine->typepat = $data['typepat'];
+        // $patrimoine->entreprise = $data['entpat'];
+        // $patrimoine->chefEquipe = $data['chfequippat'];
+        // $patrimoine->pays = $data['payspat'];
+        // $patrimoine->ville = $data['villepat'];
+        // $patrimoine->latitude = $data['lat'];
+        // $patrimoine->longitude = $data['lng'];
+        // $patrimoine->echeance = $data['echeancepat'];
+        // $patrimoine->idUser = $data['idUser'];
 
-        $imagename= $req->file('imgpat')->hashname();
-        Storage::disk('local')->put($imagename,file_get_contents($req->file('imgpat')));
+        $imagename = $req->file('imgpat');
+        $input['imagename'] = time().'.'.$imagename->extension();
+        $destinationPath = public_path().'/assets/img/PatImage' ;
+        $img = Image::make($imagename->path());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
 
-        $planname= $req->file('planfilepat')->hashname();
-        Storage::disk('local')->put($imagename,file_get_contents($req->file('planfilepat')));
+        // $imagename= $req->file('imgpat')->hashname();
+        // Storage::disk('local')->put($imagename,file_get_contents($req->file('imgpat')));
+
+        // $planname= $req->file('planfilepat')->hashname();
+        // Storage::disk('local')->put($planname,file_get_contents($req->file('planfilepat')));
 
         $patrimoine->image=$imagename;
-        $patrimoine->plan=$planname;
+        // $patrimoine->plan=$planname;
 
         $patrimoine->save();
         return response()->json($patrimoine, 200 );

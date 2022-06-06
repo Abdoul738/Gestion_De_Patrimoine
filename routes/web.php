@@ -28,19 +28,4 @@ Route::view('login','login')->name("login");
 Route::view('add-patrimoine','add-patrimoine')->name("add-patrimoine");
 Route::post('saveP','App\Http\Controllers\ControllerPatrimoine@save');
 
-// Route::group(['middleware'=>'customAuth'],function(){
-//     Route::get('/list','App\Http\Controllers\LoginRegistController@list');
-//     Route::view('/add','add');
-//     Route::post('addResto','App\Http\Controllers\LoginRegistController@addResto');
-//     Route::view('register','register');
-//     Route::view('logins','logins');
-//     Route::get('logout','App\Http\Controllers\LoginRegistController@logout');
-// });
-
-// Posts and comments
-Route::prefix('patrimoines')->namespace('Front')->group(function () {
-  
-    Route::name('patrimoines.comments.store')->post('{patrimoine}/comments', 'CommentController@store');
-    Route::name('patrimoines.comments.comments.store')->post('{patrimoine}/comments/{comment}/comments', 'CommentController@store');
-   
-});
+Route::resource('comments', CommentController::class)->except(['create']);

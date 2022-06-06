@@ -30,34 +30,4 @@ class Patrimoine extends Model
         'echeancepat',
         'idUser',
     ];
-
-    /**
-     * One to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-    /**
-     * One to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
-     */
-    public function validComments()
-    {
-        return $this->comments()->whereHas('user', function ($query) {
-            $query->whereValid(true);
-        });
-    }
-    /**
-     * One to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
-     */
-    public function parentComments()
-    {
-        return $this->validComments()->whereParentId(null);
-    }
 }
