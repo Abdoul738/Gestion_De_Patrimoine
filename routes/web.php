@@ -27,5 +27,3 @@ Route::view('list-P','listP')->name("listP");
 Route::view('login','login')->name("login");
 Route::view('add-patrimoine','add-patrimoine')->name("add-patrimoine");
 Route::post('saveP','App\Http\Controllers\ControllerPatrimoine@save');
-
-Route::resource('comments', CommentController::class)->except(['create']);

@@ -541,12 +541,10 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
     );
 
     public static $classMap = array (
-        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ControllerPatrimoine' => __DIR__ . '/../..' . '/app/Http/Controllers/ControllerPatrimoine.php',
-        'App\\Http\\Controllers\\Front\\CommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/CommentController.php',
         'App\\Http\\Controllers\\LoginRegistController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginRegistController.php',
         'App\\Http\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainController.php',
         'App\\Http\\Controllers\\MapController' => __DIR__ . '/../..' . '/app/Http/Controllers/MapController.php',
@@ -562,6 +560,7 @@ class ComposerStaticInitc132f83e55d7add03bd99b9639f4166a
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\customAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/customAuth.php',
+        'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\Patrimoine' => __DIR__ . '/../..' . '/app/Models/Patrimoine.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\test' => __DIR__ . '/../..' . '/app/Models/test.php',

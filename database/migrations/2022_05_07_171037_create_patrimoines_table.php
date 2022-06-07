@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePatrimoineTable extends Migration
+class CreatePatrimoinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -41,6 +41,6 @@ class CreatePatrimoineTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patrimoine');
+        Schema::dropIfExists('patrimoines');
     }
 }

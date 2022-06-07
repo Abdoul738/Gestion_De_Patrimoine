@@ -30,6 +30,10 @@ Route::post('/verifyprofil',[LoginRegistController::class,'login']);
 Route::post('/createuser',[testController::class,'create']);
 Route::post('/saveP',[ControllerPatrimoine::class,'save']);
 
+Route::post('/comment',[CommentController::class,'comment']);
+Route::get('/getprimarycomment',[CommentController::class,'getprimarycomment']);
+Route::get('/getsecondarycomment',[CommentController::class,'getsecondarycomment']);
+
 Route::get('images/{filename}', function ($filename)
 {
     $file = \Illuminate\Support\Facades\Storage::get($filename);

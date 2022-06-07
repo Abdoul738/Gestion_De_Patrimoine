@@ -46,17 +46,17 @@ class ControllerPatrimoine extends Controller
         $data = $req->input();
         $patrimoine = new Patrimoine;
 
-        // $patrimoine->titre = $data['nompat'];
-        // $patrimoine->description = $data['descpat'];
-        // $patrimoine->typepat = $data['typepat'];
-        // $patrimoine->entreprise = $data['entpat'];
-        // $patrimoine->chefEquipe = $data['chfequippat'];
-        // $patrimoine->pays = $data['payspat'];
-        // $patrimoine->ville = $data['villepat'];
-        // $patrimoine->latitude = $data['lat'];
-        // $patrimoine->longitude = $data['lng'];
-        // $patrimoine->echeance = $data['echeancepat'];
-        // $patrimoine->idUser = $data['idUser'];
+        $patrimoine->titre = $data['nompat'];
+        $patrimoine->description = $data['descpat'];
+        $patrimoine->typepat = $data['typepat'];
+        $patrimoine->entreprise = $data['entpat'];
+        $patrimoine->chefEquipe = $data['chfequippat'];
+        $patrimoine->pays = $data['payspat'];
+        $patrimoine->ville = $data['villepat'];
+        $patrimoine->latitude = $data['lat'];
+        $patrimoine->longitude = $data['lng'];
+        $patrimoine->echeance = $data['echeancepat'];
+        $patrimoine->idUser = $data['idUser'];
 
         $imagename = $req->file('imgpat');
         $input['imagename'] = time().'.'.$imagename->extension();
@@ -69,11 +69,11 @@ class ControllerPatrimoine extends Controller
         // $imagename= $req->file('imgpat')->hashname();
         // Storage::disk('local')->put($imagename,file_get_contents($req->file('imgpat')));
 
-        // $planname= $req->file('planfilepat')->hashname();
-        // Storage::disk('local')->put($planname,file_get_contents($req->file('planfilepat')));
+        $planname= $req->file('planfilepat')->hashname();
+        Storage::disk('local')->put($planname,file_get_contents($req->file('planfilepat')));
 
         $patrimoine->image=$imagename;
-        // $patrimoine->plan=$planname;
+        $patrimoine->plan=$planname;
 
         $patrimoine->save();
         return response()->json($patrimoine, 200 );
@@ -88,67 +88,6 @@ class ControllerPatrimoine extends Controller
     public function getOnepatrimoine($id){
         $patrimoine = DB::table('patrimoines')->where('id',$id)->get();
         return response()->json($patrimoine);
-    }
-
-    public function showcomment(Request $request, $slug)
-    {
-        $user = $request->user();
-        return view('front.post', array_merge($this->postRepository->getPostBySlug($slug), compact('user')));
-    }
-
-    public function getPostBySlug($slug)
-    {
-        // Post for slug with user, tags and categories
-        $patrimoine = $this->model
-        ->with([
-            'user' => function ($q) {
-                $q->select('id', 'name', 'email');
-            },
-            'tags' => function ($q) {
-                $q->select('tags.id', 'tag');
-            },
-            'categories' => function ($q) {
-                $q->select('title', 'slug');
-            }
-        ])
-        ->with(['parentComments' => function ($q) {
-            $q->with('user')
-                ->latest()
-                ->take(config('app.numberParentComments'));
-        }])
-        ->withCount('validComments')
-        ->withCount('parentComments')
-        ->whereSlug($slug)
-        ->firstOrFail();
-        // Previous patrimoine
-        $patrimoine->previous = $this->getPreviousPost($patrimoine->id);
-        // Next patrimoine
-        $patrimoine->next = $this->getNextPost($patrimoine->id);
-        return compact('patrimoine');
-    }
-
-    public function commentsList(Patrimoine $patrimoine, $page)
-    {
-        $comments = $this->commentRepository->getNextComments($patrimoine, $page);
-        $count = $patrimoine->parentComments()->count();
-        $level = 0;
-        // return [
-        //     'html' => view('front/comments/comments', compact('post', 'comments', 'level'))->render(),
-        //     'href' => $count <= config('app.numberParentComments') * ++$page ?
-        //         'none'
-        //         : route('posts.comments', [$patrimoine->id, $page]),
-        // ];
-        return response()->json($comments, 200 );
-    }
-
-    public function getNextComments(Patrimoine $patrimoine, $page)
-    {
-        return $patrimoine->parentComments()
-            ->with('user')
-            ->latest()
-            ->skip($page * config('app.numberParentComments'))
-            ->take(config('app.numberParentComments'))
-            ->get();
     }
 
     // /**

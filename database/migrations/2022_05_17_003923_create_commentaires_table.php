@@ -18,13 +18,10 @@ class CreateCommentairesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('pat_id');
             $table->integer('parent_id')->nullable()->index();
-            $table->integer('lft')->nullable()->index();
-            $table->integer('rgt')->nullable()->index();
-            $table->integer('depth')->nullable();
-            $table->text('content');
+            $table->text('comment');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('pat_id')->references('id')->on('patrimoines');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('pat_id')->references('id')->on('patrimoines');
         });
     }
 

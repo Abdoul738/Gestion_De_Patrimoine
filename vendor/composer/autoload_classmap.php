@@ -6,12 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ControllerPatrimoine' => $baseDir . '/app/Http/Controllers/ControllerPatrimoine.php',
-    'App\\Http\\Controllers\\Front\\CommentController' => $baseDir . '/app/Http/Controllers/Front/CommentController.php',
     'App\\Http\\Controllers\\LoginRegistController' => $baseDir . '/app/Http/Controllers/LoginRegistController.php',
     'App\\Http\\Controllers\\MainController' => $baseDir . '/app/Http/Controllers/MainController.php',
     'App\\Http\\Controllers\\MapController' => $baseDir . '/app/Http/Controllers/MapController.php',
@@ -27,6 +25,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\customAuth' => $baseDir . '/app/Http/Middleware/customAuth.php',
+    'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',
     'App\\Models\\Patrimoine' => $baseDir . '/app/Models/Patrimoine.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\test' => $baseDir . '/app/Models/test.php',
