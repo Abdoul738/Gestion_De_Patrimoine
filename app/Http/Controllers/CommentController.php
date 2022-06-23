@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
-use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
+use App\Models\commentaire;
 
 class CommentController extends Controller
 {
     public function comment(Request $req)
     {
         $data = $req->input();
-        $comment = new Comment;
+        $comment = new commentaire();
 
         $comment->user_id = $data['userid'];
         $comment->pat_id = $data['patid'];

@@ -11,6 +11,7 @@ use App\Models\User;
 class LoginRegistController extends Controller
 {
     public function registerUser(Request $req){
+        $error=0;
         if($req->password == $req->confirm_password)
 {
         $user= User::create($req->all());
@@ -18,7 +19,7 @@ class LoginRegistController extends Controller
 }
         else
         {
-            return response()->json('impossible');
+            return response()->json($error, 200);
         }
     }
 
